@@ -1,16 +1,29 @@
 import React from 'react';
 import Header from './component/Header'
-import Main from './component/Main'
-import Footer from './component/Footer'
+import Profile from './component/Profile'
+import Likes from './component/Likes'
+import Carrer from './component/Carrer'
+import Contact from './component/Contact'
+import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 
 
-const App =()=>{
+const App=()=>{
   return(
-    <div>
-     <Header />
-     <Main />
-     <Footer />
-    </div>
+      <Router>
+      <div>
+        <Header /> 
+
+        <Routes>
+          <Route path="/Profile" Component={Profile}></Route>
+          <Route path="/Likes" Component={Likes}></Route>
+          <Route path="/Carrer" Component={Carrer}></Route>
+          <Route path="/Contact" Component={Contact}></Route>
+        </Routes> 
+          
+     </div>
+     </Router>
+
+    
   );
 }
 
