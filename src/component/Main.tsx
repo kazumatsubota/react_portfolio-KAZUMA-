@@ -3,7 +3,7 @@ import Profile from './Profile';
 import Likes from './Likes';
 import Carrer from './Carrer';
 
-const Main = () =>{
+const Main:React.FC = () =>{
 
   return(
     <main>
