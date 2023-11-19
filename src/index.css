@@ -25,3 +25,18 @@ code {
   border-radius:10px;
 }
 
+.span {
+ font-weight:bold;
+ font-size:38px;
+}
+
+.homeBotton {
+ background-color:black;
+ width:80px;
+ height:80px;
+ border-radius:100%;
+ color:white;
+ font-size:12px;
+ justify-content:center;
+}
+

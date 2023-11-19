@@ -17,7 +17,7 @@ const Header:React.FC =()=>{
   return(
     <header className='relative'>
      <div className=''>
-      <img src='topimage.webp' className='z-0 h-screen w-screen bg-cover'/>
+      <img src='../Images/topimage.webp' className='z-0 h-screen w-screen bg-cover'/>
       <h1 
       className='absolute top-80 right-80 z-10 text-white text-5xl overflow-x-visible w-60 '>
         KAZUMA TSUBOTA Official Site</h1>

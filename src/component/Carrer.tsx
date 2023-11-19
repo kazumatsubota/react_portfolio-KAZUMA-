@@ -1,5 +1,6 @@
 import React from 'react';
 import Carrerdown from './Carrerdown';
+import {Link} from 'react-router-dom';
 
 
 
@@ -25,7 +26,7 @@ const Carrer:React.FC= ()=> {
 
   return(
     <div className='mt-20 justify-around'>
-      <h2 className='text-3xl mb-20 text-center'>Carrer</h2>
+      <h2 className='text-3xl mb-20 text-center'><span className='span'>C</span>arrer</h2>
       {McarrerList.map((MCarrerItem)=>{
            return( 
           <Carrerdown 
@@ -37,8 +38,12 @@ const Carrer:React.FC= ()=> {
           />
            );
            })}
-     
+      <div className='relative top-20 text-center'>
+        <button className='homeBotton'><Link to="/">Homeに戻る</Link></button>
+      </div>  
     </div>
+    
+    
    );
 }
 
