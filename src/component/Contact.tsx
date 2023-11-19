@@ -1,11 +1,14 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
+
 
 const Contact:React.FC =()=>{
 
   return(
     <footer>
-      <div className='mt-5'>
-        <h2 className='text-3xl mb-5 text-center'>Contact</h2>
+      <div className='mt-20'>
+        <h2 className='text-3xl mb-5 text-center'><span className='span'>C</span>ontact</h2>
         <div className='text-center'>
         <p className='text-xl'>Name</p>
         <input className='w-96 h-10 border-black border-solid border bg-white' type='text' />
@@ -18,6 +21,9 @@ const Contact:React.FC =()=>{
         </div>
         
         </div> 
+      </div>
+      <div className='relative top-20 text-center'>
+          <button className='homeBotton'><Link to="/">Homeに戻る</Link></button>
       </div>
     </footer>
     
