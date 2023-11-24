@@ -22,7 +22,7 @@ const Profile:React.FC = ()=> {
         <p>Born:  OSAKA</p>
         <p>Lived:  OKINAWA Prefecture</p>
         </div>
-        <div className='relative top-20 text-center'>
+        <div className='relative top-20'>
           <button className='homeBotton'><Link to="/">Homeに戻る</Link></button>
         </div>
       </div>    
