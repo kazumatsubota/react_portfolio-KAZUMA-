@@ -4,6 +4,7 @@ import Profile from './component/Profile'
 import Likes from './component/Likes'
 import Carrer from './component/Carrer'
 import Contact from './component/Contact'
+import Other from './component/Other';
 import {BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 
 
@@ -18,6 +19,7 @@ const App=()=>{
           <Route path="/Likes" Component={Likes}></Route>
           <Route path="/Carrer" Component={Carrer}></Route>
           <Route path="/Contact" Component={Contact}></Route>
+          <Route path="/Other" Component={Other}></Route>
         </Routes> 
           
      </div>

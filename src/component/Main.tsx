@@ -2,20 +2,24 @@ import React from 'react';
 import Profile from './Profile';
 import Likes from './Likes';
 import Carrer from './Carrer';
+import Other from './Other';
 
 const Main:React.FC = () =>{
 
   return(
     <main>
       <div>
-      <div className='Mainprofile'>
+      <div className=''>
         <Profile/>
       </div>
-      <div className='Mainlikes'>
+      <div className=''>
         <Likes/>
       </div>
-      <div className='MainCarrrer'>
+      <div className=''>
         <Carrer/>
+      </div>
+      <div className=''>
+        <Other/>
       </div>
     </div>
     </main>
