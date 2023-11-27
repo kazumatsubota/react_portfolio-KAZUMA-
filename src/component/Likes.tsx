@@ -2,19 +2,22 @@ import React from 'react';
 import PhotoLibrary from './PhotoLibrary';
 import Likescontents from './Likescontens';
 import {Link} from 'react-router-dom';
+import { useEffect,useState } from 'react';
 
 
 const Likes: React.FC = ()=> {
 
-  const imgs = [
-    {img:'../Images/library1.jpg'},
-    {img:'../Images/library2.jpg'},
-    {img:'../Images/library3.jpg'},
-    {img:'../Images/library4.jpg'},
-    {img:'../Images/library5.jpg'},
-    {img:'../Images/library6.jpg'},
-    {img:'../Images/library7.jpg'},
-    {img:'../Images/library8.jpg'}
+  const [likes_photo,setUserImg] = useState('');
+
+  const photolibrary = [
+    {img:'https://images.microcms-assets.io/assets/01e2a0c71f434a539fea9573e1616238/a1681b904ac043bcaf4c07aba3bbc5de/Library1.jpg'},
+    {img:'https://images.microcms-assets.io/assets/01e2a0c71f434a539fea9573e1616238/44b9fa45e9204ad8a37201fe46dde1de/library2.jpg'},
+    {img:'https://images.microcms-assets.io/assets/01e2a0c71f434a539fea9573e1616238/76323f629cd84e8eaa0fc582bdbccad6/library3.jpg'},
+    {img:'https://images.microcms-assets.io/assets/01e2a0c71f434a539fea9573e1616238/061ab66a627f49cbbbebea6f5ba1183a/library4.jpg'},
+    {img:'https://images.microcms-assets.io/assets/01e2a0c71f434a539fea9573e1616238/2188a5280b484665902297858a57284e/library5.jpg'},
+    {img:'https://images.microcms-assets.io/assets/01e2a0c71f434a539fea9573e1616238/f596b28f21b44d4c9670768e28a6f2eb/library6.jpg'},
+    {img:'https://images.microcms-assets.io/assets/01e2a0c71f434a539fea9573e1616238/9a4b9eeb06cd4192b7400a0e9f0a69d5/library7.jpg'},
+    {img:'https://images.microcms-assets.io/assets/01e2a0c71f434a539fea9573e1616238/626b7f63b0974a97bf58e7ebd25f0244/library8.jpg'}
   ];
 
   const Contents =[
@@ -35,6 +38,29 @@ const Likes: React.FC = ()=> {
     }
   ];
 
+  useEffect(()=>{
+    const myHeaders = new Headers();
+    myHeaders.append(
+      process.env.REACT_APP_MICROCMS_HEADER_KEY as any,
+      process.env.REACT_APP_MICROCMS_API_KEY as any
+    );
+
+    const requestOptions = {
+      method:'GET',
+      headers:myHeaders,
+    };
+
+    const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL+'likes_photo/id-nq94zr5c8';
+
+    console.log(api_endpoint);
+
+    fetch(api_endpoint,requestOptions)
+         .then(response => response.json())
+         .then(result => setUserImg(result.likes_photo))
+         .catch(error => console.log('error',error));
+  },[]);
+
+  
 
   return(
     <div className='mt-20'>
@@ -56,10 +82,10 @@ const Likes: React.FC = ()=> {
       <div className='mt-40'>
         <h3 className='text-3xl text-center'><span className='span'>P</span>hoto Library</h3>
         <div className='mt-10 flex flex-wrap justify-center'>
-          {imgs.map((imgItem,i)=>{
+          {photolibrary.map((photoItem,i)=>{
             return(
               <PhotoLibrary key={i}
-              img={imgItem.img}
+              img={photoItem.img}
               />
 
             );
