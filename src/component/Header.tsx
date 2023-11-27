@@ -1,5 +1,5 @@
 import React from 'react';
-import Profile from './Profile';
+import Profile from './Profile.1';
 import Likes from './Likes';
 import Carrer from './Carrer';
 import Contact from './Contact';
