@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './component/Header'
-import Profile from './component/Profile.1';
+import Profile from './component/Profile';
 import Likes from './component/Likes'
 import Carrer from './component/Carrer'
 import Contact from './component/Contact'

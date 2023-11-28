@@ -44,3 +44,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+〇アプリケーションの起動方法（Dockerコンテナ）
+
+①Dockerエンジン内でクライアントからデーモンにコマンドが発行されローカルイメージに保存（build）
+②DuckerHubのリポジトリからイメージを取得しローカルイメージに保存（pull）
+③イメージからコンテナを作成する（create）
+④作成後、コンテナを起動させる（run）

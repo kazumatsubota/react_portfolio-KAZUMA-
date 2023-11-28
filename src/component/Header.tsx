@@ -2,10 +2,11 @@ import React from 'react';
 import Menu from './Menu';
 import {Link} from 'react-router-dom';
 import { gsap } from 'gsap';
-import {useRef} from 'react';
 
 
-const Header:React.FC =()=>{
+
+
+  const Header:React.FC =()=>{
 
   const Contents =[
     {link:'/',
@@ -32,7 +33,7 @@ const hImg =".headerimg";
 const hName =".headername";
 const hList =".headerlist";
 
-const HeaderonLoad = () =>{
+const HeaderonLoad= () =>{
 
   gsap.set([hImg,hName,hList],{opacity:0,y:-100});
 
@@ -45,18 +46,6 @@ const HeaderonLoad = () =>{
   .to(hList,{opacity:1,y:0,duration: 0.8,delay:0.5});
 
 };
-
-const Headerlistref = useRef(null);
-
-const honMouseover = () =>{
- 
-  gsap.to(Headerlistref.current,{y:-10})
-};
-
-const honMouseout = () =>{
-  gsap.to(Headerlistref.current,{y:0})
-}
-
 
 
   return(
@@ -76,9 +65,6 @@ const honMouseout = () =>{
           <Menu key={i}
           link={ContentsItem.link}
           menu={ContentsItem.menu}
-          ref={Headerlistref}
-          onMouseOver={honMouseover} 
-          onMouseOut={honMouseout}
           />
         );
        })}

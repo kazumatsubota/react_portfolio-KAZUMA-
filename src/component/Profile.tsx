@@ -11,6 +11,7 @@ export const Profile: React.FC = () => {
       process.env.REACT_APP_MICROCMS_HEADER_KEY as string,
       process.env.REACT_APP_MICROCMS_API_KEY as string
     );
+    console.log(myHeaders);
 
     return fetch(url, { method: 'GET', headers: myHeaders }).then(res => res.json());
   };
@@ -18,10 +19,11 @@ export const Profile: React.FC = () => {
 
 
   const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL + 'profile';
+  console.log(api_endpoint);
 
   const { data, error } = useSWR(api_endpoint, fetcher);
 
-  if (error) return <div>エラーが発生しました</div>;
+  if (error) {console.log(error);}
   if (!data) return <div>読み込み中...</div>;
   
 
