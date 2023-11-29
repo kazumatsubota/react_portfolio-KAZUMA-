@@ -11,7 +11,7 @@ const OtherLikes: React.FC<Props>= ({name})=> {
 
 
   useEffect(()=>{
-   document.title = '{name} ${count}'
+   document.title = 'React App'
   });
 
   const countUp = () =>{
@@ -20,7 +20,7 @@ const OtherLikes: React.FC<Props>= ({name})=> {
 
   return(
     <div className='text-center pl-20 relative right-10'>
-      <p className='text-2xl'>{name}   {count}</p>
+      <p className='text-2xl'>{name} {count}</p>
       <button className='clickButton' onClick={countUp}>Click</button>
     </div>
     
