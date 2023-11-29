@@ -2,10 +2,11 @@ import React from 'react';
 import Menu from './Menu';
 import {Link} from 'react-router-dom';
 import { gsap } from 'gsap';
-import {useRef} from 'react';
 
 
-const Header:React.FC =()=>{
+
+
+  const Header:React.FC =()=>{
 
   const Contents =[
     {link:'/',
@@ -32,7 +33,7 @@ const hImg =".headerimg";
 const hName =".headername";
 const hList =".headerlist";
 
-const HeaderonLoad = () =>{
+const HeaderonLoad= () =>{
 
   gsap.set([hImg,hName,hList],{opacity:0,y:-100});
 
@@ -46,39 +47,24 @@ const HeaderonLoad = () =>{
 
 };
 
-const Headerlistref = useRef(null);
-
-const honMouseover = () =>{
- 
-  gsap.to(Headerlistref.current,{y:-10})
-};
-
-const honMouseout = () =>{
-  gsap.to(Headerlistref.current,{y:0})
-}
-
-
 
   return(
     <header className='relative'>
      <div 
      onLoad={HeaderonLoad}>
-      <img src='../Images/topimage.webp' className='z-0 h-screen w-screen bg-cover headerimg'/>
+      <img src='../Images/topimage.webp' className='z-0 h-screen w-screen bg-cover headerimg resheaderimg'/>
       <h1 
-      className='absolute top-80 right-80 z-10 text-white text-5xl overflow-x-visible w-60 headername'>
+      className='absolute top-80 right-80 z-10 text-white text-5xl w-60 headername resheadername'>
         KAZUMA TSUBOTA Official Site</h1>
-      <div className='absolute top-10 left-10 z-10  headerlist'>
-      <div className='flex  text-white text-2xl '>
+      <div className='absolute top-10 left-10 z-10  headerlist '>
+      <div className='flex text-white text-2xl resheaderlist'>
 
       {Contents.map((ContentsItem,i)=>{
         return(
-
-          <Menu key={i}
+          <Menu key={i} 
           link={ContentsItem.link}
           menu={ContentsItem.menu}
-          ref={Headerlistref}
-          onMouseOver={honMouseover} 
-          onMouseOut={honMouseout}
+  
           />
         );
        })}

@@ -3,9 +3,9 @@ import {Link} from 'react-router-dom';
 import OtherLikes from './Otherlikes';
 
 const evaluation =[
- {name:'Very Good'},
- {name:'Good'},
- {name:'Bad'}
+ {name:'Great'},
+ {name:'Nice'},
+ {name:'Good'}
 ];
 
 

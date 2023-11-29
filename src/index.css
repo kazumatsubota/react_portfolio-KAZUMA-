@@ -58,3 +58,43 @@ code {
   opacity:0.5;
 }
 
+
+@media screen and (max-width: 1000px) {
+	
+  .resheaderimg{
+    height:900px;
+  }
+  .resheadername{
+  position:absolute;
+  top:400px;
+  left:140px;
+  }
+  .resheaderlist{
+  flex-wrap:wrap;
+  margin-left:15px;
+  }
+
+  .resmenulist{
+  padding-top:30px;
+  }
+
+  .resprofilelist{
+    position:relative;
+    right:60px;
+  }
+
+  .restoplikeslist{
+    position:relative;
+    right:110px;
+  }
+
+  .reslikeslist{
+    margin-bottom:100px;
+  }
+
+  .rescarrercontent{
+    width:400px;
+  }
+
+}
+
