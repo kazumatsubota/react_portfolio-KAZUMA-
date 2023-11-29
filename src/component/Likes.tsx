@@ -1,6 +1,6 @@
 import React from 'react';
 import PhotoLibrary from './PhotoLibrary';
-import Likescontents from './Likescontens';
+import Likescontents from './Likescontents';
 import {Link} from 'react-router-dom';
 import { useEffect,useState,useRef } from 'react';
 import useSWR from "swr";

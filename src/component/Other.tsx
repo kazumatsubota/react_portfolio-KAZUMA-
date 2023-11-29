@@ -12,7 +12,7 @@ const evaluation =[
 const Other: React.FC= ()=> {
 
   return(
-    <div className='mt-40'>
+    <div className='mt-20'>
       <h3 className='text-3xl text-center'><span className='span'>E</span>valuation</h3>
       <div className='flex justify-center mt-20'>
         {evaluation.map((evaluationItem,i)=>{

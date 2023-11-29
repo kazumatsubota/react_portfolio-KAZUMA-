@@ -6,6 +6,7 @@ import Other from './Other';
 import {Link} from 'react-router-dom';
 import {useRef} from 'react';
 import { gsap } from 'gsap';
+import {Link as Scroll } from 'react-scroll';
 
 type Props = {
   link:any;
@@ -27,11 +28,12 @@ const Menu:React.FC<Props>= ({link,menu}) =>{
 
   return(
        
-        <div className='resmenulist'
+        <div className='resmenulist name'
         ref={Headerlistref}
         onMouseOver={honMouseover} 
         onMouseOut={honMouseout}
-        ><Link to={link} className='p-8 header-nav'>{menu}</Link></div>
+        ><Scroll to="name" smooth={true} duration={600} offset={720}><Link to={link} className='p-8 header-nav'>{menu}</Link></Scroll>
+          </div>
                
       );
 
