@@ -52,3 +52,29 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ②DuckerHubのリポジトリからイメージを取得しローカルイメージに保存（pull）
 ③イメージからコンテナを作成する（create）
 ④作成後、コンテナを起動させる（run）
+
+
+
+
+〇SWR
+const fetcher = (url: string) => {
+    const myHeaders = new Headers();
+    myHeaders.append(
+      process.env.REACT_APP_MICROCMS_HEADER_KEY as string,
+      process.env.REACT_APP_MICROCMS_API_KEY as string
+    );
+    myHeaders.append("Access-Control-Allow-Origin", "*");
+    console.log(myHeaders);
+
+    return fetch(url, { method: 'GET', headers: myHeaders }).then(res => res.json());
+  };
+
+
+
+  const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL + 'profile';
+  console.log(api_endpoint);
+
+  const { data, error } = useSWR(api_endpoint, fetcher);
+
+  if (error) {console.log(error);}
+  if (!data) return <div>読み込み中...</div>;

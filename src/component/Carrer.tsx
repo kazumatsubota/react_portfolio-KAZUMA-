@@ -1,5 +1,5 @@
 import React from 'react';
-import Carrerdown from './Carrerdown';
+import Carrercontent from './Carrercontent';
 import {Link} from 'react-router-dom';
 
 
@@ -29,7 +29,7 @@ const Carrer:React.FC= ()=> {
       <h2 className='text-3xl mb-20 text-center'><span className='span'>C</span>arrer</h2>
       {McarrerList.map((MCarrerItem)=>{
            return( 
-          <Carrerdown 
+          <Carrercontent
            name={MCarrerItem.name}
             content1={MCarrerItem.content1}
             content2={MCarrerItem.content2}

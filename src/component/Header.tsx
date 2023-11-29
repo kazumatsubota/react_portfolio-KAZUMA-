@@ -52,19 +52,19 @@ const HeaderonLoad= () =>{
     <header className='relative'>
      <div 
      onLoad={HeaderonLoad}>
-      <img src='../Images/topimage.webp' className='z-0 h-screen w-screen bg-cover headerimg'/>
+      <img src='../Images/topimage.webp' className='z-0 h-screen w-screen bg-cover headerimg resheaderimg'/>
       <h1 
-      className='absolute top-80 right-80 z-10 text-white text-5xl overflow-x-visible w-60 headername'>
+      className='absolute top-80 right-80 z-10 text-white text-5xl w-60 headername resheadername'>
         KAZUMA TSUBOTA Official Site</h1>
-      <div className='absolute top-10 left-10 z-10  headerlist'>
-      <div className='flex  text-white text-2xl '>
+      <div className='absolute top-10 left-10 z-10  headerlist '>
+      <div className='flex text-white text-2xl resheaderlist'>
 
       {Contents.map((ContentsItem,i)=>{
         return(
-
-          <Menu key={i}
+          <Menu key={i} 
           link={ContentsItem.link}
           menu={ContentsItem.menu}
+  
           />
         );
        })}

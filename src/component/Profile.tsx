@@ -1,30 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import useSWR from 'swr';
+import {useRef,useState,useEffect} from 'react';
+import useSWR from "swr";
 
-export const Profile: React.FC = () => {
+const Profile: React.FC = () => {
 
+  const name = useRef(null);
 
-  const fetcher = (url: string) => {
+  const [profilename,setUserName]=useState('KAZUMA TSUBOTA');
+  const [profileborn,setUserBorn]=useState('OSAKA');
+  const [profilelived,setUserLived]=useState('OKINAWA');
+
+  useEffect(() => {
     const myHeaders = new Headers();
     myHeaders.append(
-      process.env.REACT_APP_MICROCMS_HEADER_KEY as string,
-      process.env.REACT_APP_MICROCMS_API_KEY as string
+        process.env.REACT_APP_MICROCMS_HEADER_KEY as string,
+        process.env.REACT_APP_MICROCMS_API_KEY as string
     );
-    console.log(myHeaders);
 
-    return fetch(url, { method: 'GET', headers: myHeaders }).then(res => res.json());
-  };
+    const requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+    };
 
+    const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL + 'profile-name';
 
+    console.log(api_endpoint);
 
-  const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL + 'profile';
-  console.log(api_endpoint);
+    fetch(api_endpoint, requestOptions)
+        .then(response => response.json())
+        .then(result => 
+          {setUserName(result.profilename)
+           setUserBorn(result.profileborn)
+           setUserLived(result.profilelived)
+          }
+          
+          )
+        .catch(error => console.log('error', error));
+}, []);
 
-  const { data, error } = useSWR(api_endpoint, fetcher);
-
-  if (error) {console.log(error);}
-  if (!data) return <div>読み込み中...</div>;
+  
   
 
   return (
@@ -34,16 +49,16 @@ export const Profile: React.FC = () => {
         <img src='../Images/Profileimage.jpg' className='rounded-t-full rounded-b-full w-56 h-56' />
       </div>
       {/*詳細を右に表示*/}
-      <div className='relative'>
+      <div className='resprofilelist'>
         <h2 className='text-3xl'><span className='span'>P</span>rofile</h2>
         <div className='text-xl mt-10'>
-          <p>
-            Name:  {data.profilename}</p>
+          <p ref={name}> 
+            Name:  {profilename}</p>
           <p>Age:  27</p>
-          <p>Born:  OSAKA</p>
-          <p>Lived:  OKINAWA</p>
+          <p>Born:  {profileborn}</p>
+          <p>Lived:  {profilelived}</p>
         </div>
-        <div className='relative top-20'>
+        <div className='relative top-20 right-28'>
           <button className='homeBotton'><Link to="/">Homeに戻る</Link></button>
         </div>
       </div>

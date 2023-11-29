@@ -2,11 +2,13 @@ import React from 'react';
 import PhotoLibrary from './PhotoLibrary';
 import Likescontents from './Likescontens';
 import {Link} from 'react-router-dom';
-import { useEffect,useState } from 'react';
+import { useEffect,useState,useRef } from 'react';
+import useSWR from "swr";
 
 
 const Likes: React.FC = ()=> {
-
+  
+  const img = useRef(null);
   const [likes_photo,setUserImg] = useState('');
 
   const photolibrary = [
@@ -50,7 +52,7 @@ const Likes: React.FC = ()=> {
       headers:myHeaders,
     };
 
-    const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL+'likes_photo/id-nq94zr5c8';
+    const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL+'likes';
 
     console.log(api_endpoint);
 
@@ -65,7 +67,7 @@ const Likes: React.FC = ()=> {
   return(
     <div className='mt-20'>
       <h2 className='text-3xl text-center'><span className='span'>L</span>ikes</h2>
-      <div className='flex  mt-10 ml-28'>
+      <div className='flex flex-wrap mt-10 ml-28 restoplikeslist'>
        {Contents.map((ContentsItem,i)=>{
         return(
 
@@ -81,7 +83,7 @@ const Likes: React.FC = ()=> {
       </div>
       <div className='mt-40'>
         <h3 className='text-3xl text-center'><span className='span'>P</span>hoto Library</h3>
-        <div className='mt-10 flex flex-wrap justify-center'>
+        <div className='mt-10 flex flex-wrap justify-center' ref={img}>{likes_photo}
           {photolibrary.map((photoItem,i)=>{
             return(
               <PhotoLibrary key={i}

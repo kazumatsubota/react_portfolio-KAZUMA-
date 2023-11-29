@@ -10,7 +10,7 @@ type Props = {
 const Likescontents: React.FC<Props>= ({img,name,content1,content2})=> {
 
   return(
-    <div className='ml-32 w-64 h-64 relative'>
+    <div className='ml-32 w-64 h-64 relative reslikeslist'>
         <img src={img} className='w-80 h-48'/>
         <h2 className='text-xl text-center mb-10 mt-5'>{name}</h2>
         <div className='-mr-5 absolute -left-5'>
