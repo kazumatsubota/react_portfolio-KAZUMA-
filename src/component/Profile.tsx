@@ -30,9 +30,9 @@ const Profile: React.FC = () => {
     fetch(api_endpoint, requestOptions)
         .then(response => response.json())
         .then(result => 
-          {setUserName(result.profilename)
-           setUserBorn(result.profileborn)
-           setUserLived(result.profilelived)
+          {setUserName(result['profilename'])
+           setUserBorn(result['profileborn'])
+           setUserLived(result['profilelived'])
           }
           
           )

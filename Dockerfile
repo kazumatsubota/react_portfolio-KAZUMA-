@@ -15,3 +15,17 @@ EXPOSE 3000
 
 # React の起動
 CMD ["npm", "run", "start"]
+
+
+
+# Nginxのイメージを使用
+FROM nginx:alpine
+
+# ビルドした成果物をNginxのhtmlディレクトリにコピー
+COPY build /usr/share/nginx/html
+
+# 80番ポートを開放
+EXPOSE 80
+
+# Nginxを起動
+CMD ["nginx", "-g", "daemon off;"]
