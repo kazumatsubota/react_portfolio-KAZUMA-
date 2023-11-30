@@ -46,17 +46,18 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 
-〇アプリケーションの起動方法（Dockerコンテナ）
+〇アプリケーションの起動方法（Docker）
 
-①Dockerエンジン内でクライアントからデーモンにコマンドが発行されローカルイメージに保存（build）
-②DuckerHubのリポジトリからイメージを取得しローカルイメージに保存（pull）
-③イメージからコンテナを作成する（create）
-④作成後、コンテナを起動させる（run）
+①コマンドをDockerデーモンが受け取りイメージ作成、コンテナ作成
+②Dockerfileの情報からbuildしイメージを作成する
+（DockerHubからイメージをpullしてイメージを作る場合もある）
+③イメージからサーバーにコンテナを作成する（create）
+④作成後、サーバーに保管されているコンテナを起動させる（run）
 
 
 
 
-〇SWR
+〇SWR コード（Profile）
 const fetcher = (url: string) => {
     const myHeaders = new Headers();
     myHeaders.append(

@@ -58,7 +58,7 @@ const Likes: React.FC = ()=> {
 
     fetch(api_endpoint,requestOptions)
          .then(response => response.json())
-         .then(result => setUserImg(result.likes_photo))
+         .then(result => setUserImg(result['likes_photo']))
          .catch(error => console.log('error',error));
   },[]);
 
@@ -83,7 +83,7 @@ const Likes: React.FC = ()=> {
       </div>
       <div className='mt-40'>
         <h3 className='text-3xl text-center'><span className='span'>P</span>hoto Library</h3>
-        <div className='mt-10 flex flex-wrap justify-center' ref={img}>{likes_photo}
+        <div className='mt-10 flex flex-wrap justify-center' ref={img}>
           {photolibrary.map((photoItem,i)=>{
             return(
               <PhotoLibrary key={i}
@@ -93,6 +93,8 @@ const Likes: React.FC = ()=> {
             );
      
           })}
+
+         {likes_photo}
         </div>
       </div>
       <div className='relative top-20 text-center'>
