@@ -58,6 +58,8 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 〇SWR コード（Profile）
+import useSWR from "swr";
+
 const fetcher = (url: string) => {
     const myHeaders = new Headers();
     myHeaders.append(
@@ -79,3 +81,5 @@ const fetcher = (url: string) => {
 
   if (error) {console.log(error);}
   if (!data) return <div>読み込み中...</div>;
+
+  {data.profilename}
