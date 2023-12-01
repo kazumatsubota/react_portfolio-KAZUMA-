@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {useRef,useState,useEffect} from 'react';
-import useSWR from "swr";
+
 
 const Profile: React.FC = () => {
 
@@ -23,7 +23,7 @@ const Profile: React.FC = () => {
         headers: myHeaders,
     };
 
-    const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL + 'profile-name';
+    const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL + 'profile';
 
     console.log(api_endpoint);
 

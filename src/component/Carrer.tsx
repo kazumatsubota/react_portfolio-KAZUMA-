@@ -3,7 +3,6 @@ import Carrercontent from './Carrercontent';
 import {Link} from 'react-router-dom';
 
 
-
 const Carrer:React.FC= ()=> {
 
   const McarrerList = [
