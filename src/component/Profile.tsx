@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {useRef,useState,useEffect} from 'react';
+import {useRef,useState} from 'react';
 
 
-const Profile: React.FC = () => {
+const Profile : React.FC=   ()  => {
 
   const name = useRef(null);
 
@@ -11,11 +11,11 @@ const Profile: React.FC = () => {
   const [profileborn,setUserBorn]=useState('OSAKA');
   const [profilelived,setUserLived]=useState('OKINAWA');
 
-  useEffect(() => {
+  // useEffect(() => {
     const myHeaders = new Headers();
     myHeaders.append(
-        process.env.REACT_APP_MICROCMS_HEADER_KEY as string,
-        process.env.REACT_APP_MICROCMS_API_KEY as string
+        process.env.MICROCMS_HEADER_KEY as string,
+        process.env.MICROCMS_API_KEY as string
     );
 
     const requestOptions = {
@@ -23,11 +23,15 @@ const Profile: React.FC = () => {
         headers: myHeaders,
     };
 
-    const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL + 'profile';
+    const api_endpoint = process.env.MICROCMS_API_BASEURL + 'profile';
 
     console.log(api_endpoint);
+    console.log(requestOptions);
+    
+    const fechData = async()=>{
 
-    fetch(api_endpoint, requestOptions)
+      await fetch(api_endpoint, requestOptions)
+    
         .then(response => response.json())
         .then(result => 
           {setUserName(result['profilename'])
@@ -37,7 +41,12 @@ const Profile: React.FC = () => {
           
           )
         .catch(error => console.log('error', error));
-}, []);
+
+
+    }
+    fechData();
+    
+// }, []);
 
   
   
