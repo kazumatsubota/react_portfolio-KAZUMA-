@@ -1,21 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {useRef,useState} from 'react';
+import {useState,useEffect} from 'react';
 
 
 const Profile : React.FC=   ()  => {
 
-  const name = useRef(null);
 
   const [profilename,setUserName]=useState('KAZUMA TSUBOTA');
   const [profileborn,setUserBorn]=useState('OSAKA');
   const [profilelived,setUserLived]=useState('OKINAWA');
 
-  // useEffect(() => {
+  useEffect(() => {
     const myHeaders = new Headers();
     myHeaders.append(
-        process.env.MICROCMS_HEADER_KEY as string,
-        process.env.MICROCMS_API_KEY as string
+        process.env.REACT_APP_MICROCMS_HEADER_KEY as string,
+        process.env.REACT_APP_MICROCMS_API_KEY as string
     );
 
     const requestOptions = {
@@ -23,30 +22,40 @@ const Profile : React.FC=   ()  => {
         headers: myHeaders,
     };
 
-    const api_endpoint = process.env.MICROCMS_API_BASEURL + 'profile';
+    const api_endpoint = process.env.REACT_APP_MICROCMS_API_BASEURL as string;
+
 
     console.log(api_endpoint);
     console.log(requestOptions);
     
     const fechData = async()=>{
 
-      await fetch(api_endpoint, requestOptions)
-    
-        .then(response => response.json())
-        .then(result => 
-          {setUserName(result['profilename'])
-           setUserBorn(result['profileborn'])
-           setUserLived(result['profilelived'])
-          }
+      const response = await fetch(api_endpoint, requestOptions);
+
+      const content1 = await response.json();
+      console.log(content1);
+      const content2 = content1.data.content[0];
+      console.log(content2);
+       setUserName(content2.profilename)
+       setUserBorn(content2.profileborn)
+       setUserLived(content2.profilelived)
           
-          )
-        .catch(error => console.log('error', error));
+    
+        // .then(response => response.json())
+        // .then(result => 
+        //   {setUserName(result['profilename'])
+        //    setUserBorn(result['profileborn'])
+        //    setUserLived(result['profilelived'])
+        //   }
+          
+          // )
+        // .catch(error => console.log('error', error));
 
 
     }
     fechData();
     
-// }, []);
+}, []);
 
   
   
@@ -61,7 +70,7 @@ const Profile : React.FC=   ()  => {
       <div className='resprofilelist'>
         <h2 className='text-3xl'><span className='span'>P</span>rofile</h2>
         <div className='text-xl mt-10'>
-          <p ref={name}> 
+          <p> 
             Name:  {profilename}</p>
           <p>Age:  27</p>
           <p>Born:  {profileborn}</p>
